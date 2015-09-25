@@ -189,14 +189,14 @@ void inserirFilme() {
 	printf("\n-----------------------------\n");
 	printf("Novo Filme:\n");
 
-
+	fflush(stdin);
 	// verifica se o titulo foi preenchido
 	do {
 		printf("Titulo (obrigatorio): ");
 		fgets(nome, 50, stdin);
 	} while (strlen(nome) < 1);
 
-	//printf("%s", novoF.nome);
+	printf("%s", nome);
 	int filmeOk = checarFilme(nome);
 
 	// verifica se o titulo ja existe
@@ -414,11 +414,12 @@ void imprimirMenu() {
 
 int pedirAcao() {
 	int i;
+	char resposta[10];
 
 	printf("\n-----------------------------\n");
 	printf("Fazer: ");
-	scanf("%d", &i);
-	fflush(stdin);
+	fgets(resposta, 10, stdin);
+	i = atoi(resposta);
 
 	return i;
 }
